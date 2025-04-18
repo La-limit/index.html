@@ -712,7 +712,7 @@
     <div class="container">
       <div class="header-inner">
         <div class="logo">
-         <img src="images/photo.jpg" alt="La Limit Logo" class="logo-image">
+         <img src="images/photo.jpg.jpeg" alt="La Limit Logo" class="logo-image">
           <div class="logo-text">LA LiMiT</div>
         </div>
         <nav class="nav-links" id="navLinks">
@@ -731,7 +731,7 @@
 
   <!-- Floating Logo -->
   <div class="floating-logo">
-    <img src="/images/photo.jpg" alt="La Limit Logo">
+    <img src="/images/photo.jpg.jpeg" alt="La Limit Logo">
   </div>
 
   <section class="hero" id="hero">
@@ -907,3 +907,28 @@
             <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="#" target="_blank"><i class="fab fa-twitter "></i></a>
             <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+	      </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuBtn.classList.toggle('open');
+      
+     
+      const isOpen = menuBtn.classList.contains('open');
+      menuBtn.innerHTML = isOpen
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+  </script>
+</body>
+</html>
