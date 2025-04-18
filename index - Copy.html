@@ -1,0 +1,909 @@
+	<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>La Limit | شركة التسويق الرائدة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #0b5394;
+      --secondary: #f4d22f;
+      --dark: #0a2847;
+      --light: #f9f9f9;
+      --accent: #e6f2ff;
+      --text: #333333;
+      --white: #ffffff;
+      --gray: #f5f5f7;
+    }
+
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+      background: rgba(11, 83, 148, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 60px;
+      margin-left: 10px;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      padding: 8px 15px;
+      border-radius: 4px;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(10, 40, 71, 0.85), rgba(11, 83, 148, 0.85)), 
+                  url('/api/placeholder/1200/600') center/cover no-repeat fixed;
+      color: var(--white);
+      padding: 180px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/api/placeholder/100/100') repeat;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: var(--secondary);
+      color: var(--dark);
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: var(--white);
+    }
+
+    .about-text {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .about-text strong {
+      color: var(--primary);
+    }
+
+    /* Vision & Mission */
+    .vision-mission {
+      background-color: var(--accent);
+    }
+
+    .vm-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .vm-card {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 40px;
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .vm-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .vm-icon {
+      font-size: 40px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .vm-card h3 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .vm-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    blockquote {
+      border-right: 4px solid var(--secondary);
+      padding-right: 20px;
+      font-style: italic;
+    }
+
+    /* Values Section */
+    .values-section {
+      background-color: var(--white);
+    }
+
+    .values-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .value-card {
+      background: linear-gradient(135deg, #fff, #f8f8f8);
+      border-radius: 15px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      width: 300px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-bottom: 4px solid transparent;
+    }
+
+    .value-card:hover {
+      transform: translateY(-10px);
+      border-bottom: 4px solid var(--secondary);
+    }
+
+    .value-card i {
+      font-size: 50px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .value-card p {
+      color: #666;
+    }
+
+    /* Services Section */
+    .services-section {
+      background-color: var(--gray);
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-icon {
+      background: linear-gradient(135deg, var(--primary), #1976d2);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .service-icon i {
+      font-size: 40px;
+      color: var(--white);
+    }
+
+    .service-content {
+      padding: 30px;
+    }
+
+    .service-content h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      color: var(--white);
+    }
+
+    .contact-section .section-title {
+      color: var(--white);
+    }
+
+    .contact-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: var(--secondary);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-detail i {
+      margin-left: 15px;
+      font-size: 18px;
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      margin-top: 30px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: var(--secondary);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    /* Icon Animation */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animated-icon {
+      animation: pulse 2s infinite;
+    }
+
+    .form-container {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      font-size: 16px;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    textarea.form-control {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 50px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .copyright {
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--primary);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--secondary);
+      color: var(--dark);
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .header-inner {
+        padding: 15px;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .floating-logo {
+        top: 80px;
+        right: 10px;
+        width: 60px;
+        height: 60px;
+      }
+      
+      .floating-logo img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--primary);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        z-index: 2000;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        z-index: 3000;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .vm-card, .about-text {
+        padding: 30px;
+      }
+
+      .value-card, .service-card {
+        width: 100%;
+      }
+
+      .contact-info, .form-container {
+        width: 100%;
+      }
+      
+      .floating-logo {
+        top: auto;
+        bottom: 80px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .logo-img {
+        height: 50px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      .hero {
+        padding: 150px 0 80px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+      
+      .floating-logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .floating-logo img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+         <img src="images/photo.jpg" alt="La Limit Logo" class="logo-image">
+          <div class="logo-text">LA LiMiT</div>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="#about">من نحن</a>
+          <a href="#vision-mission">الرؤية والرسالة</a>
+          <a href="#values">قيمنا</a>
+          <a href="#services">خدماتنا</a>
+          <a href="#contact">تواصل معنا</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Floating Logo -->
+  <div class="floating-logo">
+    <img src="/images/photo.jpg" alt="La Limit Logo">
+  </div>
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content animate">
+        <h1>ابتكار. إبداع. تميّز.</h1>
+        <p>في La Limit نقدّم حلولًا تسويقية مبتكرة تأخذ علامتك التجارية إلى آفاق جديدة</p>
+        <a href="#contact" class="btn">تواصل معنا الآن</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">من نحن</h2>
+      <div class="section-subtitle">نحن نجعل التسويق تجربة ممتعة ومثمرة</div>
+      <div class="about-text animate">
+        <p><strong>La Limit</strong> هي وكالة تسويقية شابة بفكر متجدد، تأسست عام <em>2023</em>، ونهدف إلى إحداث فرق حقيقي في مشهد التسويق المحلي والإقليمي. نؤمن بأن التسويق ليس مجرد إعلان، بل استراتيجية متكاملة تبدأ من الفكرة وتنتهي بقياس الأثر.</p>
+        <p>تأسست La Limit على يد نخبة من المتخصصين الشباب، لتكون بوابة الشركات نحو بناء هوية قوية، وتحقيق تواصل فعّال مع جمهورها المستهدف، من خلال حلول إبداعية مصممة خصيصًا لكل عميل.</p>
+        <p>نجمع بين الخبرة التسويقية المدروسة وأحدث التقنيات الرقمية لنقدم لعملائنا تجربة فريدة من نوعها. نحن لا نسعى فقط لتلبية توقعات عملائنا، بل نطمح لتجاوزها، عبر تقديم حلول تسويقية متكاملة ومبتكرة.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision-mission" class="vision-mission">
+    <div class="container">
+      <h2 class="section-title">رؤيتنا ورسالتنا</h2>
+      <div class="section-subtitle">قيادة عالم التسويق نحو آفاق جديدة</div>
+      <div class="vm-container">
+        <div class="vm-card animate">
+          <div class="vm-icon">
+            <i class="fas fa-eye animated-icon"></i>
+          </div>
+          <h3>رؤيتنا</h3>
+          <blockquote>
+            <em>"أن نكون الوكالة الرائدة في المنطقة في تقديم حلول تسويقية مبتكرة تواكب تطورات السوق، وتلهم التغيير الإيجابي في أسلوب تواصل العلامات التجارية مع جمهورها."</em>
+          </blockquote>
+        </div>
+        <div class="vm-card animate">
+          <div class="vm-icon">
+            <i class="fas fa-rocket animated-icon"></i>
+          </div>
+          <h3>رسالتنا</h3>
+          <p>توفير خدمات تسويقية متكاملة تجمع بين الفكر الاستراتيجي، والإبداع التقني، والابتكار المستمر، لمساعدة عملائنا على تحقيق النمو، وتعزيز حضورهم في السوق، وبناء علاقات طويلة الأمد مع جمهورهم.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="values" class="values-section">
+    <div class="container">
+      <h2 class="section-title">قيمنا</h2>
+      <div class="section-subtitle">المبادئ التي تقود أعمالنا وتميز أداءنا</div>
+      <div class="values-grid">
+        <div class="value-card animate">
+          <i class="fas fa-check-circle animated-icon"></i>
+          <h3>الالتزام</h3>
+          <p>نلتزم بأعلى المعايير في جودة العمل واحترام الوقت لتحقيق رضا عملائنا.</p>
+        </div>
+        <div class="value-card animate">
+          <i class="fas fa-lightbulb animated-icon"></i>
+          <h3>الابتكار</h3>
+          <p>نبحث دائمًا عن أفكار جديدة وحلول غير تقليدية تميّز علامات عملائنا التجارية.</p>
+        </div>
+        <div class="value-card animate">
+          <i class="fas fa-chart-line animated-icon"></i>
+          <h3>التطور</h3>
+          <p>نؤمن أن التعلم المستمر هو مفتاح النجاح في عالم سريع التغير لذا نواكب كل جديد.</p>
+        </div>
+        <div class="value-card animate">
+          <i class="fas fa-users animated-icon"></i>
+          <h3>التعاون</h3>
+          <p>نؤمن بقوة العمل الجماعي وأهمية بناء شراكات طويلة الأمد مع عملائنا.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 class="section-title">خدماتنا</h2>
+      <div class="section-subtitle">حلول تسويقية متكاملة تناسب احتياجات عملك</div>
+      <div class="services-list">
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-clipboard-list animated-icon"></i>
+          </div>
+          <div class="service-content">
+            <h3>التخطيط والاستشارات</h3>
+            <p>استراتيجيات تسويقية متكاملة، دراسات جدوى، وتحليل السوق والمنافسين لضمان اتخاذ القرارات الصحيحة.</p>
+          </div>
+        </div>
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-bullhorn animated-icon"></i>
+          </div>
+          <div class="service-content">
+            <h3>التسويق الرقمي</h3>
+            <p>إدارة حملات إعلانية مدفوعة، إدارة مواقع التواصل الاجتماعي، تسويق المحتوى، وتحسين محركات البحث.</p>
+          </div>
+        </div>
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-paint-brush animated-icon"></i>
+          </div>
+          <div class="service-content">
+            <h3>الإبداع والتصميم</h3>
+            <p>تصميم هوية بصرية متكاملة، تصميم مواقع إلكترونية، إنتاج الفيديو، وتصميم المواد الإعلانية المختلفة.</p>
+          </div>
+        </div>
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-cogs animated-icon"></i>
+          </div>
+          <div class="service-content">
+            <h3>التسويق التقليدي</h3>
+            <p>الإعلانات الخارجية، المطبوعات، التسويق الميداني، وتنظيم الفعاليات والمعارض وإدارتها بكفاءة.</p>
+          </div>
+        </div>
+      <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="service-content">
+            <h3>خدمات متقدمة</h3>
+            <p>توظيف الذكاء الاصطناعي في التسويق، تسويق المؤثرين، وإدارة الأزمات والتعامل معها بشكل احترافي.</p>
+          </div>
+        </div>
+        <div class="service-card animate">
+          <div class="service-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <div class="service-content">
+            <h3>تحليل الأداء</h3>
+            <p>تقارير دورية مفصلة عن العائد على الاستثمار وتحليلات عميقة للبيانات لتحسين الأداء المستقبلي.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">تواصل معنا</h2>
+      <div class="section-subtitle">نحن هنا للإجابة على جميع استفساراتك</div>
+      <div class="contact-container">
+        <div class="contact-info animate">
+          <h3>معلومات الاتصال</h3>
+          <div class="contact-detail">
+            <i class="fas fa-user-tie"></i>
+            <div>
+              <strong>عمر شربجي</strong> - المدير التنفيذي
+            </div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-phone-alt"></i>
+            <div>0935031226 / 0782797783</div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <div>LaLimit023@gmail.com</div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>الأردن - عمان - شارع الجامعة</div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>سوريا - دمشق - المزة</div>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/limit_la/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter "></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
